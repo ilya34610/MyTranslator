@@ -1,10 +1,27 @@
 class UserInterfaceModule:
+    """
+    Модуль управления пользовательским интерфейсом.
+
+    Методы:
+    - set_theme(theme): Устанавливает тему интерфейса ('light' или 'dark').
+    - update_layout(layout): Обновляет макет интерфейса ('desktop' или 'mobile').
+    - render_components(): Отрисовывает элементы интерфейса.
+    - handle_user_interaction(): Обрабатывает взаимодействие пользователя.
+    - run(): Запускает процесс настройки и работы интерфейса.
+    """
+
     def __init__(self):
+        """Инициализирует модуль интерфейса пользователя с настройками по умолчанию."""
         print("Модуль интерфейса пользователя инициализирован.")
-        self.theme = "light"   # Тема по умолчанию
-        self.layout = "desktop"  # Макет по умолчанию
+        self.theme = "light"
+        self.layout = "desktop"
 
     def set_theme(self, theme):
+        """
+        Устанавливает тему интерфейса.
+
+        :param theme: Название темы ('light' или 'dark').
+        """
         print("Настройка темы интерфейса...")
         if theme in ["light", "dark"]:
             self.theme = theme
@@ -14,6 +31,11 @@ class UserInterfaceModule:
         print(f"Текущая тема: {self.theme}")
 
     def update_layout(self, layout):
+        """
+        Обновляет макет интерфейса.
+
+        :param layout: Тип макета ('desktop' или 'mobile').
+        """
         print("Обновление макета интерфейса...")
         if layout in ["desktop", "mobile"]:
             self.layout = layout
@@ -23,33 +45,41 @@ class UserInterfaceModule:
         print(f"Текущий макет: {self.layout}")
 
     def render_components(self):
+        """
+        Отрисовывает элементы пользовательского интерфейса.
+        """
         print("Отрисовка элементов интерфейса:")
         print("- Кнопки")
         print("- Выпадающие списки")
         print("- Поля ввода")
         print("- Меню навигации")
-        # Дополнительные элементы могут быть добавлены здесь
 
     def handle_user_interaction(self):
+        """
+        Обрабатывает взаимодействие пользователя с интерфейсом.
+        """
         print("Ожидание взаимодействия с пользователем...")
-        # Псевдоимитация пользовательского действия (например, нажатие кнопки)
-        user_action = "click_button"  # Симуляция
+        user_action = "click_button"
         if user_action == "click_button":
             print("Пользователь нажал кнопку.")
         else:
             print("Пользователь выбрал другой элемент интерфейса.")
 
     def run(self):
+        """
+        Запускает процесс работы интерфейса: настройка, отрисовка и обработка взаимодействий.
+        """
         print("Запуск модуля интерфейса пользователя...")
-        # Пример настройки интерфейса
         self.set_theme("dark")
         self.update_layout("mobile")
-        # Отрисовка компонентов интерфейса
         self.render_components()
-        # Обработка пользовательского взаимодействия
         self.handle_user_interaction()
         print("Работа модуля интерфейса пользователя завершена.")
 
+
 if __name__ == "__main__":
+    """
+    Точка входа в программу: создаёт экземпляр модуля и запускает его.
+    """
     ui_module = UserInterfaceModule()
     ui_module.run()
