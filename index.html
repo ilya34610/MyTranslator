@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MyTranslator - Документация</title>
+  <HTA:APPLICATION
+    ID="MyTranslatorDoc"
+    APPLICATIONNAME="MyTranslator Documentation"
+    BORDER="thin"
+    BORDERSTYLE="normal"
+    CAPTION="yes"
+    SHOWINTASKBAR="yes"
+    SINGLEINSTANCE="yes"
+    SYSMENU="yes"
+    WINDOWSTATE="normal"
+  />
+  <style>
+    /* Общие стили */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: -webkit-linear-gradient(90deg, #aa9af9, #5dd2da, #908ff0);
+      background: linear-gradient(90deg, #aa9af9, #5dd2da, #908ff0);
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      margin-top: 20px;
+    }
+    h1 {
+      color: #2C3E50;
+    }
+    h2 {
+      color: #2980B9;
+    }
+    h3 {
+      color: #8E44AD;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #D0D3E8;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    
+    /* Стили для навигационного меню */
+    nav {
+      background: linear-gradient(45deg, #2C3E50, #4CA1AF);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      display: block;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: #ecf0f1;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      background-color: #1ABC9C;
+      transition: background-color 0.3s ease;
+    }
+    /* Выпадающее меню */
+    nav ul li ul.dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #34495E;
+      min-width: 180px;
+      z-index: 1000;
+    }
+    nav ul li:hover ul.dropdown {
+      display: block;
+    }
+    nav ul li ul.dropdown li a {
+      padding: 10px 20px;
+      white-space: nowrap;
+      font-weight: normal;
+    }
+    nav ul li ul.dropdown li a:hover {
+      background-color: #1ABC9C;
+    }
+    
+    /* Отступ для основного контента, чтобы не сливался с меню */
+    .content {
+      margin-top: 20px;
+    }
+
+    /* Стили для отдельных блоков */
+    .section {
+      background: linear-gradient(135deg, #ffffff, #f2f2f2);
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Навигационное меню -->
+  <nav>
+    <ul>
+      <li><a href="#about">О проекте</a></li>
+      <li><a href="#modules">Сценарии использования</a></li>
+      <li>
+        <a href="#works">Предыдущие работы</a>
+        <ul class="dropdown">
+          <li><a href="labs/lab1.html" target="_blank">Лабораторная 1</a></li>
+          <li><a href="labs/lab2.html" target="_blank">Лабораторная 2</a></li>
+          <li><a href="labs/lab3.html" target="_blank">Лабораторная 3</a></li>
+          <li><a href="labs/lab4.html" target="_blank">Лабораторная 4</a></li>
+          <li><a href="labs/lab5.html" target="_blank">Лабораторная 5</a></li>
+        </ul>
+      </li>
+      <li><a href="#" onclick="copyEmail(event)">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <!-- Основной контент -->
+  <div class="content">
+    <h1 id="about">Описание и сценарии использования системы MyTranslator</h1>
+
+    <div class="section">
+      <h2>Краткое описание системы MyTranslator</h2>
+      <p>
+        MyTranslator — система автоматического перевода текста, включающая функции определения языка, голосового ввода/вывода, сохранения истории переводов и интеграции с внешними приложениями. Система предлагает интуитивный интерфейс, гибкие настройки и высокую точность перевода благодаря использованию технологий машинного обучения и внешних API.
+      </p>
+      <p>
+        Основные компоненты системы включают:
+        <ul>
+          <li><code>LanguageDetectionComponent</code> — автоматическое определение языка введённого текста с использованием встроенных языковых моделей или внешних API (например, langdetect, Google Language Detection API).</li>
+          <li><code>TextTranslationSubsystem</code> — подсистема перевода текста между поддерживаемыми языками с возможностью подключения к локальным движкам или внешним API (Google Translate, DeepL, Yandex.Translate).</li>
+          <li><code>IOTextModule</code> — функциональный блок для ввода и вывода текста, поддерживающий работу с форматами TXT, DOCX и PDF.</li>
+          <li><code>VoiceInputOutputMechanism</code> — механизм голосового ввода и вывода, реализующий распознавание речи и синтез переведённого текста с использованием API Google Speech-to-Text, Microsoft Azure Speech или аналогов.</li>
+          <li><code>UserInterface</code> — интерфейс пользователя с поддержкой тёмной и светлой тем, адаптивной версткой и удобными элементами управления.</li>
+          <li><code>TranslationHistorySystem</code> — система работы с историей переводов, позволяющая сохранять, искать и фильтровать выполненные переводы по языкам и дате.</li>
+          <li><code>BrowserIntegrationModule</code> — интеграционный блок для браузера и офисных приложений, обеспечивающий перевод текста в реальном времени.</li>
+          <li><code>CustomSettingsModule</code> — модуль настройки параметров перевода, включая выбор языков, пользовательские словари и терминологические базы.</li>
+          <li><code>DataSecurityBlock</code> — блок безопасности данных, гарантирующий шифрование и защиту информации пользователя.</li>
+        </ul>
+      </p>
+    </div>
+
+    <div class="section">
+      <h2 id="modules">Сценарии использования</h2>
+
+      <h3>Сценарий 1: Определение языка текста</h3>
+      <p>
+        В этом сценарии используется компонент <code>LanguageDetectionComponent</code> для автоматического определения языка введённого текста.
+      </p>
+      <pre><code>
+# Инициализация компонента LanguageDetectionComponent
+lang_detector = LanguageDetectionComponent()
+
+# Определение языка введённого текста
+text = "Bonjour, comment ça va?"
+detected_language = lang_detector.run(text)
+      </code></pre>
+      <p>
+        В результате выполнения кода будет определён язык текста.
+      </p>
+
+      <h3>Сценарий 2: Перевод текста</h3>
+      <p>
+        В этом сценарии используется подсистема <code>TextTranslationSubsystem</code> для перевода текста между выбранными языками.
+      </p>
+      <pre><code>
+# Инициализация подсистемы TextTranslationSubsystem
+translator = TextTranslationSubsystem()
+
+# Перевод текста с французского на русский
+original_text = "Bonjour, comment ça va?"
+translated_text = translator.run(original_text, source_lang="fr", target_lang="ru")
+      </code></pre>
+      <p>
+        В результате выполнения кода будет выполнен перевод текста с французского на русский.
+      </p>
+
+      <h3>Сценарий 3: Ввод и вывод текста</h3>
+      <p>
+        В этом сценарии используется модуль <code>IOTextModule</code> для организации ввода текста пользователем и вывода переведённого результата.
+      </p>
+      <pre><code>
+# Инициализация модуля IOTextModule
+io_module = IOTextModule()
+
+# Ввод текста пользователем
+user_input = "Hello, how are you?"
+io_module.input_text(user_input)
+
+# Вывод переведённого текста
+translated = translator.run(user_input, source_lang="en", target_lang="ru")
+io_module.output_text(translated)
+      </code></pre>
+      <p>
+        В результате выполнения кода пользователь вводит текст, после чего система выводит переведённый результат.
+      </p>
+
+      <h3>Сценарий 4: Голосовой ввод и вывод</h3>
+      <p>
+        В этом сценарии используется механизм <code>VoiceInputOutputMechanism</code> для распознавания голосового ввода и синтеза переведённого текста.
+      </p>
+      <pre><code>
+# Инициализация механизма VoiceInputOutputMechanism
+voice_module = VoiceInputOutputMechanism()
+
+# Захват голосового ввода и получение перевода
+voice_input = voice_module.capture()
+translated_voice = translator.run(voice_input, source_lang="en", target_lang="ru")
+voice_module.speak(translated_voice)
+      </code></pre>
+      <p>
+        В результате выполнения кода система распознает голосовой ввод и воспроизведёт переведённый текст.
+      </p>
+
+      <h3>Сценарий 5: Сохранение истории переводов</h3>
+      <p>
+        В этом сценарии используется система <code>TranslationHistorySystem</code> для сохранения и последующего поиска выполненных переводов.
+      </p>
+      <pre><code>
+# Инициализация системы TranslationHistorySystem
+history_system = TranslationHistorySystem()
+
+# Сохранение перевода в историю
+history_system.save(original_text, translated_text)
+
+# Поиск ранее сохранённого перевода
+result = history_system.search(query="Bonjour")
+      </code></pre>
+      <p>
+        В результате выполнения кода история переводов сохраняется, и пользователь получает возможность осуществлять поиск по ней.
+      </p>
+
+      <h3>Сценарий 6: Интеграция с браузером и офисными приложениями</h3>
+      <p>
+        В этом сценарии используется модуль <code>BrowserIntegrationModule</code> для перевода текста непосредственно в браузере или в офисных приложениях.
+      </p>
+      <pre><code>
+# Инициализация модуля BrowserIntegrationModule
+browser_module = BrowserIntegrationModule()
+
+# Перевод текста в контексте браузера
+translated_text = browser_module.run("Hello, world!")
+      </code></pre>
+      <p>
+        В результате выполнения кода текст будет переведён в реальном времени в браузере.
+      </p>
+
+      <h3>Сценарий 7: Настройка параметров перевода</h3>
+      <p>
+        В этом сценарии используется модуль <code>CustomSettingsModule</code> для настройки предпочтительных параметров перевода.
+      </p>
+      <pre><code>
+# Инициализация модуля CustomSettingsModule
+settings_module = CustomSettingsModule()
+
+# Настройка параметров перевода (например, выбор языков и темы интерфейса)
+settings_module.set_preferences(source_lang="en", target_lang="ru", theme="dark")
+      </code></pre>
+      <p>
+        В результате выполнения кода пользователь может настроить параметры перевода в соответствии со своими предпочтениями.
+      </p>
+
+      <h3>Сценарий 8: Обеспечение безопасности данных</h3>
+      <p>
+        В этом сценарии используется блок <code>DataSecurityBlock</code> для шифрования и защиты данных пользователя.
+      </p>
+      <pre><code>
+# Инициализация блока DataSecurityBlock
+security_block = DataSecurityBlock()
+
+# Пример шифрования переведённого текста
+encrypted_data = security_block.encrypt(translated_text)
+      </code></pre>
+      <p>
+        В результате выполнения кода переведённые данные будут зашифрованы, что обеспечивает их безопасность.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function copyEmail(event) {
+      event.preventDefault(); // Отменяем стандартное действие ссылки
+      const email = "example@example.com"; // Замените на свою почту
+
+      // Копируем в буфер обмена
+      navigator.clipboard.writeText(email).then(() => {
+        alert("Почта скопирована: " + email);
+      }).catch(err => {
+        console.error("Ошибка копирования: ", err);
+      });
+    }
+  </script>
+</body>
+</html>
